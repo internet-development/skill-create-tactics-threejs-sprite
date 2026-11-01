@@ -1,0 +1,318 @@
+/* NOTE(@jimmylee): a flex container has no line box, so the tag sits on the box's edge. Inline, it sat 1px
+   down, and at a fractional zoom that left a seam under the 1px border. */
+.cell {
+  position: absolute;
+  display: flex;
+  align-items: flex-start;
+  box-shadow: inset 0 0 0 1px var(--theme-inverse-background);
+  cursor: pointer;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.08);
+  }
+}
+
+.subRegion {
+  align-items: flex-end;
+  box-shadow: inset 0 0 0 1px var(--theme-seq-event);
+
+  & .label {
+    background: var(--theme-seq-event);
+  }
+}
+
+.label {
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-mono-small);
+  line-height: 1;
+  padding: 2px 2px 0 2px;
+  background: var(--theme-inverse-background);
+  color: var(--theme-inverse-text);
+  text-transform: uppercase;
+  user-select: none;
+}
+
+.page {
+  padding: 24px;
+  min-width: 0;
+  min-height: 100dvh;
+}
+
+.intro {
+  max-width: 64ch;
+  margin-bottom: 32px;
+  overflow-wrap: anywhere;
+
+  & p + p {
+    margin-top: 8px;
+  }
+
+  & a {
+    color: inherit;
+  }
+
+  & a:focus-visible {
+    outline: 1px solid var(--theme-text);
+    outline-offset: 1px;
+  }
+}
+
+/* NOTE(@jimmylee): the newlines are in the markup, so an agent reading the HTML gets the same YAML. */
+.frontmatter {
+  white-space: pre-line;
+}
+
+.spriteSheetSection {
+  position: relative;
+  display: block;
+  margin-bottom: 32px;
+}
+
+.spriteSheetPart {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.spriteSheetLeft,
+.spriteSheetRight {
+  min-width: 10%;
+  width: 100%;
+  border-top: 1px solid var(--theme-border);
+  height: calc(var(--line-height-mono) / 2);
+}
+
+.spriteSheetLeftCorner,
+.spriteSheetRightCorner {
+  flex-shrink: 0;
+  border-top: 1px solid var(--theme-border);
+  height: calc(var(--line-height-mono) / 2);
+  width: 2ch;
+}
+
+.spriteSheetLeft,
+.spriteSheetLeftCorner {
+  border-left: 1px solid var(--theme-border);
+}
+
+.spriteSheetRight,
+.spriteSheetRightCorner {
+  border-right: 1px solid var(--theme-border);
+}
+
+.spriteSheetTitle {
+  flex-shrink: 0;
+  max-width: 80%;
+  padding: 0 1ch 0 1ch;
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-mono);
+  line-height: var(--line-height-mono);
+  font-weight: 400;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.spriteSheetSectionRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.spriteSheetChildren {
+  border: 1px solid var(--theme-border);
+  border-top: 0;
+  padding: 10px 2ch 20px 2ch;
+  overflow-x: auto;
+  overflow-y: hidden;
+  display: block;
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-mono);
+  line-height: var(--line-height-mono);
+  text-transform: uppercase;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  scrollbar-width: none;
+}
+
+.frameGroup {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 2px;
+}
+
+.spriteCell {
+  background-color: var(--theme-background-subdued);
+  image-rendering: pixelated;
+  background-repeat: no-repeat;
+}
+
+.reversed {
+  transform: scaleX(-1);
+}
+
+.active {
+  background-color: var(--theme-text);
+}
+
+.animPreview {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.timeline {
+  width: 100%;
+  display: flex;
+}
+
+.timelineDot {
+  background: var(--theme-background-subdued);
+  padding: 3px 4px 1px 4px;
+  font-size: var(--font-size-mono-small);
+  line-height: 1;
+  color: var(--theme-text-subdued);
+  text-align: left;
+  margin: 1px;
+  cursor: pointer;
+
+  &:hover {
+    background: var(--theme-border);
+  }
+}
+
+.timelineDotActive {
+  background: var(--theme-inverse-background);
+  color: var(--theme-inverse-text);
+
+  &:hover {
+    background: var(--theme-inverse-background);
+  }
+}
+
+.timelineDotFrozen {
+  color: var(--theme-text-subdued);
+}
+
+.timelineDotFrozen.timelineDotActive {
+  background: var(--theme-seq-event);
+  color: var(--theme-inverse-text);
+}
+
+.filmstrip {
+  width: 100%;
+  display: flex;
+  margin-top: 2px;
+}
+
+.filmstripSegment {
+  height: 6px;
+  margin: 0 1px 0 0;
+  background: var(--theme-background-subdued);
+  cursor: pointer;
+
+  &:hover {
+    background: var(--theme-border);
+  }
+}
+
+.filmstripSegmentActive {
+  background: var(--theme-inverse-background);
+}
+
+.filmstripSegmentFrozen.filmstripSegmentActive {
+  background: var(--theme-seq-event);
+}
+
+.compositeContainer {
+  position: relative;
+  display: inline-block;
+}
+
+.compositeLayer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.08);
+}
+
+/* NOTE(@jimmylee): the controls touch, with one border between them, as in the ThreeJS demo groups. */
+.libraryControls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 1px 0 0 1px;
+  margin-bottom: 8px;
+}
+
+.librarySelect,
+.libraryButton {
+  font: inherit;
+  color: var(--theme-text);
+  background: var(--theme-background);
+  border: 1px solid var(--theme-border);
+  box-sizing: border-box;
+  height: var(--control-height);
+  margin: -1px 0 0 -1px;
+  padding: var(--control-text-inset) 1ch 0 1ch;
+  position: relative;
+  max-width: 100%;
+  text-transform: uppercase;
+
+  &:focus-visible {
+    outline: 1px solid var(--theme-text);
+    outline-offset: 1px;
+    z-index: 2;
+  }
+}
+
+.librarySelect {
+  border-radius: 0;
+  padding-top: var(--control-select-text-inset);
+}
+
+.libraryButton {
+  cursor: pointer;
+
+  &[aria-pressed='true'] {
+    background: var(--theme-inverse-background);
+    border-color: var(--theme-inverse-background);
+    color: var(--theme-inverse-text);
+    z-index: 1;
+  }
+}
+
+/* NOTE(@jimmylee): holds a sequence section's place until its body mounts, so a long scroll does not
+   bring dozens of section titles on screen at once. */
+.sequencePlaceholder {
+  min-height: 640px;
+}
+
+/* NOTE(@jimmylee): the grey shows through every transparent pixel of the frame. */
+.anchorStage {
+  position: relative;
+  display: inline-block;
+  background: var(--theme-background-subdued);
+}
+
+.anchorStageGround {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--theme-border);
+}
+
+.anchorStageBody {
+  position: absolute;
+}

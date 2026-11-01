@@ -1,0 +1,83 @@
+@font-face {
+  font-family: 'Nix8810';
+  src: url('/fonts/Web437_Nix8810_M16.woff') format('woff');
+  font-display: swap;
+}
+
+/* NOTE(@jimmylee): GeistSerifVF.woff2 varies ELSH (the dot shape), not weight. Regular is the only
+   weight Geist Serif publishes today. */
+@font-face {
+  font-family: 'Geist Serif';
+  src: url('/fonts/GeistSerifVF.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+
+html,
+body,
+div,
+span,
+canvas,
+h1,
+h2,
+h3,
+p,
+a,
+img,
+ul,
+li,
+table,
+caption,
+tbody,
+thead,
+tr,
+th,
+td,
+article,
+header,
+nav,
+section {
+  box-sizing: border-box;
+  vertical-align: baseline;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+html,
+body {
+  --theme-background: rgba(255, 255, 255, 1);
+  --theme-background-subdued: rgba(244, 244, 244, 1);
+  --theme-text: rgba(0, 0, 0, 1);
+  --theme-text-subdued: rgba(95, 95, 95, 1);
+  --theme-border: rgba(198, 198, 198, 1);
+  --theme-inverse-background: rgba(0, 0, 0, 1);
+  --theme-inverse-text: rgba(255, 255, 255, 1);
+  --theme-seq-event: rgba(15, 98, 254, 1);
+  --theme-engine-event: rgba(218, 30, 120, 1);
+  --theme-error: rgba(218, 30, 40, 1);
+
+  --font-family-serif: 'Geist Serif', Georgia, 'Times New Roman', serif;
+  --font-family-mono: 'Nix8810', monospace;
+  --font-size-serif: 16px;
+  --line-height-serif: 24px;
+
+  /* NOTE(@jimmylee): Nix8810 M16 is an 8x16 bitmap face, so one glyph cell is half as wide as the font
+     size: 7px by 14px here. The small size is for labels that must sit inside a tile. */
+  --font-size-mono: 14px;
+  --font-size-mono-small: 12px;
+  --line-height-mono: 18px;
+  --control-height: 22px;
+
+  /* NOTE(@jimmylee): Nix8810's capitals sit above the middle of its line, so a control takes this much
+     padding on top to center them. A select centers its own text 1px lower, so it takes less. */
+  --control-text-inset: 3px;
+  --control-select-text-inset: 2px;
+
+  background: var(--theme-background);
+  color: var(--theme-text);
+  font-family: var(--font-family-serif);
+  font-size: var(--font-size-serif);
+  line-height: var(--line-height-serif);
+  font-synthesis: none;
+}

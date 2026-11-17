@@ -1,6 +1,6 @@
 {
   "name": "skill-create-tactics-threejs-sprite",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://3d.internet.dev",
   "license": "MIT",
   "engines": {
@@ -14,7 +14,7 @@
     "test:watch": "vitest --watch"
   },
   "dependencies": {
-    "next": "^16.4.3",
+    "next": "^16.4.6",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
     "three": "^0.187.0"
@@ -23,6 +23,6 @@
     "@types/node": "^26.6.6",
     "@types/react": "^19.3.0",
     "typescript": "^7.0.2",
-    "vitest": "^5.0.5"
+    "vitest": "^5.1.0"
   }
 }
